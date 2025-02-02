@@ -25,7 +25,8 @@ bool majorValid(const string &textInput) {
             break;
         }
     }
-    return false;
+    //return false;
+    return true;
 } // برسی می کند آیا رشته درست وارد شده یا خیر
 bool numbersValid (const string &textInput) {
     return !textInput.empty() && all_of(textInput.begin(), textInput.end(),::isdigit);
@@ -107,7 +108,8 @@ void studentMarkReadline(string personMark[][3], string personProperty[4])
             if (stringValid(person.subject))
                 break;
             else
-                cout << "Invalid Subject's Name. Please enter a valid name (only characters): ";
+                //cout << "Invalid Subject's Name. Please enter a valid name (only characters): ";
+                cout << "Test";
         }
         cout << "Enter the unit: ";
         while (true) {
