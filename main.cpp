@@ -108,8 +108,7 @@ void studentMarkReadline(string personMark[][3], string personProperty[4])
             if (stringValid(person.subject))
                 break;
             else
-                //cout << "Invalid Subject's Name. Please enter a valid name (only characters): ";
-                cout << "Test";
+                cout << "Invalid Subject's Name. Please enter a valid name (only characters): ";
         }
         cout << "Enter the unit: ";
         while (true) {
