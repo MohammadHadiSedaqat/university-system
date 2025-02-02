@@ -1,0 +1,3 @@
+/Users/hadisedaghat/Desktop/Work_Folder/Programming/C++/new project/cmake-build-debug/CMakeFiles/new_project.dir
+/Users/hadisedaghat/Desktop/Work_Folder/Programming/C++/new project/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/hadisedaghat/Desktop/Work_Folder/Programming/C++/new project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
