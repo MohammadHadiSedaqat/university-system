@@ -37,16 +37,19 @@ bool majorValid(const string &textInput)
     }
     return false;
 } // برسی می کند آیا رشته درست وارد شده یا خیر
-bool numbersValid (const string &textInput) {
+bool numbersValid (const string &textInput)
+{
     return !textInput.empty() && all_of(textInput.begin(), textInput.end(),::isdigit);
 } // برسی می کند آیا ورودی عدد است یا خیر
-bool doubleValid(const string &textInput) {
+bool doubleValid(const string &textInput)
+{
     istringstream iss(textInput);
     double number;
     char alphabet;
     return (iss >> number) && !(iss >> alphabet);
 } // برسی می کند آیا در بخش نمره عدد وارد شده یا خیر
-string marksMaker(const double mark) {
+string marksMaker(const double mark)
+{
     string averageResult = to_string(mark);
     short decimal = averageResult.find('.');
     if (decimal != string::npos)
