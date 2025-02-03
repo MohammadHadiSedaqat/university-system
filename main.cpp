@@ -282,20 +282,6 @@ void reportCardMaker(string student[][4],string personMark[][3], int rsc)
         }
     }
 } // ساخت کارنامه دانشجو
-void studentWithoutMarks(string students[][4],int rsc) {
-    fstream major;
-    major.open(students[rsc][1]+".txt", ios::app);
-    if (major.is_open()) {
-        major << "Name: " << students[rsc][0]<< " / " << "ID: " << students[rsc][1]<< " / "  << "Major: " << students[rsc][2] << " / " << "Average: " << students[rsc][3];
-        major.close();
-    }
-    fstream list;
-    list.open("students_without_marks", ios::app);
-    if (list.is_open()) {
-        list << students[rsc][1]<< '\n';
-        list.close();
-    }
-} // ساخت فایل برای دانشجویان بدون نمره
 
 int main()
 {
