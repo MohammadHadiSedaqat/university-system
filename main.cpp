@@ -299,21 +299,12 @@ void studentWithoutMarks(string students[][4],int rsc) {
 
 int main()
 {
-    const int MAX_STUDENTS = 100;
-    string students[MAX_STUDENTS][4]; // آرایه برای ذخیره موقت دانشجو ها
-    int Registered_student_Count = 0; // تعداد دانش‌آموزان ثبت‌ شده
-    fstream Computer_list;
-    fstream Industrial_list;
-    fstream Electrical_list;
-    fstream Mechanical_list;
-
     while (true)
     {
         cout << "1. Add new student\n"
              << "2. Students list\n"
-             << "3. Student without marks report\n"
-             << "4. Report card\n"
-             << "5. Exit\n"
+             << "3. Report card\n"
+             << "4. Exit\n"
              << "Enter your choice: ";
 
         int input_number;
@@ -347,7 +338,6 @@ int main()
                         {
                             Registered_student_Count++;
                             students[Registered_student_Count][3] = "0"; // اگر نمره‌ای وارد نشد، معدل ۰
-                            studentWithoutMarks(students, Registered_student_Count-1);
                             cout << "The student's properties with '0' average have been saved.\n" << endl;
                         }
                         else
@@ -482,51 +472,7 @@ int main()
                             }
                     break;
                     }
-            case 3:
-            {
-                while (true) {
-                    string id;
-                    fstream major;
-                    major.open("students_without_marks", ios::in);
-                    if (!major) {
-                        cout << "Not any Computer Student has been registered. Please enter '1' to register.";
-                        cout << endl;
-                        break;
-                    }
-                    if (major.is_open()) {
-                        if (major.peek() == ifstream::traits_type::eof()) {
-                            cout << "Not any Computer Student has been registered. Please enter '1' to register.";
-                            cout << endl;
-                            break;
-                        }
-                        else {
-                            string line;
-                            while (getline(major, line))
-                                cout << line << "\n";
-                            major.close();
-                        }
-                    }
-                    cout << "Enter the id of student: ";
-                    cin >> id;
-                    id += ".txt";
-                    if (fs::exists(id))
-                    {
-                        fstream idfile(id,ios::in);
-                        if (idfile.is_open())
-                        {
-                            string line;
-                            while (getline(idfile,line))
-                                cout << line << "\n";
-                            idfile.close();
-                        }
-                        cout << "\n";
-                        break;
-                    }
-                }
-                break;
-            }
-            case 4:
-            {
+            case 3: {
                 int filter_input;
                 bool valid = false;
                 while (!valid)
@@ -689,9 +635,8 @@ int main()
                                 break;
                         }
                     }
-                break;
-            }
-            case 5: {
+                break;}
+            case 4: {
                         cout << "Exiting...\n";
                         return 0;
                     }
