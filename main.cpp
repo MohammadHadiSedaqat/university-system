@@ -325,6 +325,7 @@ int main()
                             Registered_student_Count++;
                             students[Registered_student_Count][3] = "0"; // اگر نمره‌ای وارد نشد، معدل ۰
                             cout << "The student's properties with '0' average have been saved.\n" << endl;
+                            cout << "returning to menu and main...\n";
                         }
                         else
                             cout << "Invalid input. Please enter 'y' or 'n'.\n";
@@ -458,176 +459,252 @@ int main()
                             }
                     break;
                     }
+
             case 3: {
-                int filter_input;
-                bool valid = false;
-                while (!valid)
-                    {
-                        cout << "Press '1' to show Computer Engineering students   "
-                        << "Press '2' to show Industrial Engineering students\n"
-                        << "Press '3' to show Electrical Engineering students\t"
-                        << "Press '4' to show Mechanical Engineering students\n";
-                        cout << "Please enter your choice: ";
-                        cin >> filter_input;
-                        switch (filter_input)
+                    int filter_input;
+                    bool valid = false;
+                    while (!valid)
                         {
-                            case 1:
+                            cout << "Press '1' to show Computer Engineering students   "
+                            << "Press '2' to show Industrial Engineering students\n"
+                            << "Press '3' to show Electrical Engineering students\t"
+                            << "Press '4' to show Mechanical Engineering students\n";
+                            cout << "Please enter your choice: ";
+                            cin >> filter_input;
+                            switch (filter_input)
                             {
-                                valid = true;
-                                while (true)
+                                case 1:
                                 {
-                                    string id;
-                                    fstream computerID;
-                                    computerID.open("ComputerID_list", ios::in);
-                                    if (!computerID) {
-                                        cout << "Not any Computer Student has been registered. Please enter '1' to register.";
-                                        cout << endl;
-                                        break;
-                                    }
-                                    if (computerID.is_open()) {
-                                        if (computerID.peek() == ifstream::traits_type::eof()) {
+                                    valid = true;
+                                    while (true)
+                                    {
+                                        string id;
+                                        fstream computerID;
+                                        computerID.open("ComputerID_list", ios::in);
+                                        if (!computerID)
+                                        {
                                             cout << "Not any Computer Student has been registered. Please enter '1' to register.";
                                             cout << endl;
                                             break;
                                         }
-                                        else {
-                                            string line;
-                                            while (getline(computerID, line))
-                                                cout << line << "\n";
-                                            computerID.close();
-                                        }
-                                    }
-                                    cout << "Enter the id of student: ";
-                                    cin >> id;
-                                    id += ".txt";
-                                    if (fs::exists(id))
-                                    {
-                                        fstream idfile(id,ios::in);
-                                        if (idfile.is_open())
+                                        if (computerID.is_open())
                                         {
-                                            string line;
-                                            while (getline(idfile,line))
-                                                cout << line << "\n";
-                                            idfile.close();
+                                            if (computerID.peek() == ifstream::traits_type::eof()) {
+                                                cout << "Not any Computer Student has been registered. Please enter '1' to register.";
+                                                cout << endl;
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                string line;
+                                                while (getline(computerID, line))
+                                                    cout << line << "\n";
+                                                computerID.close();
+                                            }
                                         }
-                                        cout << "\n";
-                                        break;
+                                        cout << "Enter the id of student: ";
+                                        cin >> id;
+                                        id += ".txt";
+                                        if (fs::exists(id))
+                                        {
+                                            fstream idfile(id,ios::in);
+                                            if (idfile.is_open())
+                                            {
+                                                string line;
+                                                while (getline(idfile,line))
+                                                    cout << line << "\n";
+                                                idfile.close();
+                                            }
+                                            cout << "\n";
+                                            break;
+                                        }
+                                        else
+                                            cout << "id not found. Please choose one of the top numbers: ";
                                     }
-                                    else
-                                        cout << "id not found. Please choose one of the top numbers: ";
+                                    char c;
+                                    while(true)
+                                    {
+                                        cout << "press c to continue\n";
+                                        cin >> c;
+                                        if (c == 'c')
+                                            break;
+                                    }
                                 }
-                                break;
-                            }
-                            case 2:
-                            {
-                                break;
-                            }
-                            case 3:
-                            {
-                                valid = true;
-                                while (true)
+                                case 2:
                                 {
-                                    string id;
-                                    fstream electricalID;
-                                    electricalID.open("ElectricalID_list", ios::in);
-                                    if (!electricalID) {
-                                        cout << "Not any Computer Student has been registered. Please enter '1' to register.";
-                                        cout << endl;
-                                        break;
-                                    }
-                                    if (electricalID.is_open()) {
-                                        if (electricalID.peek() == ifstream::traits_type::eof()) {
-                                            cout << "Not any Computer Student has been registered. Please enter '1' to register.";
+                                    valid = true;
+                                    while (true)
+                                    {
+                                        string id;
+                                        fstream industrialID;
+                                        industrialID.open("IndustrialID_list", ios::in);
+                                        if (!industrialID) {
+                                            cout << "Not any Industrial Student has been registered. Please enter '1' to register.";
                                             cout << endl;
                                             break;
                                         }
-                                        else {
-                                            string line;
-                                            while (getline(electricalID, line))
-                                                cout << line << "\n";
-                                            electricalID.close();
+                                        if (industrialID.is_open()) {
+                                            if (industrialID.peek() == ifstream::traits_type::eof()) {
+                                                cout << "Not any Industrial Student has been registered. Please enter '1' to register.";
+                                                cout << endl;
+                                                break;
+                                            }
+                                            else {
+                                                string line;
+                                                while (getline(industrialID, line))
+                                                    cout << line << "\n";
+                                                industrialID.close();
+                                            }
                                         }
-                                    }
-                                    cout << "Enter the id of student: ";
-                                    cin >> id;
-                                    id +=".txt";
-                                    if (fs::exists(id))
-                                    {
-                                        fstream idfile(id,ios::in);
-                                        if (idfile.is_open())
+                                        cout << "Enter the id of student: ";
+                                        cin >> id;
+                                        id += ".txt";
+                                        if (fs::exists(id))
                                         {
-                                            string line;
-                                            while (getline(idfile,line))
-                                            cout << line << "\n";
-                                            idfile.close();
+                                            fstream idfile(id,ios::in);
+                                            if (idfile.is_open())
+                                            {
+                                                string line;
+                                                while (getline(idfile,line))
+                                                    cout << line << "\n";
+                                                idfile.close();
+                                            }
+                                            cout << "\n";
+                                            break;
                                         }
-                                        break;
+                                        else
+                                            cout << "id not found. Please choose one of the top numbers: ";
                                     }
-                                    else
-                                        cout << "id not found. Please choose one of the top numbers: ";
+                                    char c;
+                                    while(true)
+                                    {
+                                        cout << "press c to continue\n";
+                                        cin >> c;
+                                        if (c == 'c')
+                                            break;
+                                    }
                                 }
-                                cout << "\n";
-                                break;
-                            }
-                            case 4:
-                            {
-                                valid = true;
-                                while (true)
+                                case 3:
                                 {
-                                    string id;
-                                    fstream mechanicalID;
-                                    mechanicalID.open("MechanicalID_list", ios::in);
-                                    if (!mechanicalID) {
-                                        cout << "Not any Computer Student has been registered. Please enter '1' to register.";
-                                        cout << endl;
-                                        break;
-                                    }
-                                    if (mechanicalID.is_open()) {
-                                        if (mechanicalID.peek() == ifstream::traits_type::eof()) {
-                                            cout << "Not any Computer Student has been registered. Please enter '1' to register.";
+                                    valid = true;
+                                    while (true)
+                                    {
+                                        string id;
+                                        fstream electricalID;
+                                        electricalID.open("ElectricalID_list", ios::in);
+                                        if (!electricalID) {
+                                            cout << "Not any Electrical Student has been registered. Please enter '1' to register.";
                                             cout << endl;
                                             break;
                                         }
-                                        else {
-                                            string line;
-                                            while (getline(mechanicalID, line))
-                                                cout << line << "\n";
-                                            mechanicalID.close();
+                                        if (electricalID.is_open()) {
+                                            if (electricalID.peek() == ifstream::traits_type::eof()) {
+                                                cout << "Not any Electrical Student has been registered. Please enter '1' to register.";
+                                                cout << endl;
+                                                break;
+                                            }
+                                            else {
+                                                string line;
+                                                while (getline(electricalID, line))
+                                                    cout << line << "\n";
+                                                electricalID.close();
+                                            }
                                         }
-                                    }
-                                    cout << "Enter the id of student: ";
-                                    cin >> id;
-                                    id +=".txt";
-                                    if (fs::exists(id))
-                                    {
-                                        fstream idfile(id,ios::in);
-                                        if (idfile.is_open())
+                                        cout << "Enter the id of student: ";
+                                        cin >> id;
+                                        id +=".txt";
+                                        if (fs::exists(id))
                                         {
-                                            string line;
-                                            while (getline(idfile,line))
-                                            cout << line << "\n";
-                                            idfile.close();
+                                            fstream idfile(id,ios::in);
+                                            if (idfile.is_open())
+                                            {
+                                                string line;
+                                                while (getline(idfile,line))
+                                                cout << line << "\n";
+                                                idfile.close();
+                                            }
+                                            break;
                                         }
-                                        break;
+                                        else
+                                            cout << "id not found. Please choose one of the top numbers: ";
                                     }
-                                    else
-                                        cout << "id not found. Please choose one of the top numbers: ";
+                                    cout << "\n";
+                                    char c;
+                                    while(true)
+                                    {
+                                        cout << "press c to continue\n";
+                                        cin >> c;
+                                        if (c == 'c')
+                                            break;
+                                    }
                                 }
-                                cout << "\n";
-                                break;
+                                case 4:
+                                {
+                                    valid = true;
+                                    while (true)
+                                    {
+                                        string id;
+                                        fstream mechanicalID;
+                                        mechanicalID.open("MechanicalID_list", ios::in);
+                                        if (!mechanicalID) {
+                                            cout << "Not any Mechanical Student has been registered. Please enter '1' to register.";
+                                            cout << endl;
+                                            break;
+                                        }
+                                        if (mechanicalID.is_open()) {
+                                            if (mechanicalID.peek() == ifstream::traits_type::eof()) {
+                                                cout << "Not any Mechanical Student has been registered. Please enter '1' to register.";
+                                                cout << endl;
+                                                break;
+                                            }
+                                            else {
+                                                string line;
+                                                while (getline(mechanicalID, line))
+                                                    cout << line << "\n";
+                                                mechanicalID.close();
+                                            }
+                                        }
+                                        cout << "Enter the id of student: ";
+                                        cin >> id;
+                                        id +=".txt";
+                                        if (fs::exists(id))
+                                        {
+                                            fstream idfile(id,ios::in);
+                                            if (idfile.is_open())
+                                            {
+                                                string line;
+                                                while (getline(idfile,line))
+                                                cout << line << "\n";
+                                                idfile.close();
+                                            }
+                                            break;
+                                        }
+                                        else
+                                            cout << "id not found. Please choose one of the top numbers: ";
+                                    }
+                                    cout << "\n";
+                                    char c;
+                                    while(true)
+                                    {
+                                        cout << "press c to continue\n";
+                                        cin >> c;
+                                        if (c == 'c')
+                                            break;
+                                    }
+                                }
+                                default:
+                                    cout << "Invalid input. Please enter a number between 1 and 4.\n";
+                                    break;
                             }
-                            default:
-                                cout << "Invalid input. Please enter a number between 1 and 4.\n";
-                                break;
                         }
+                    break;
                     }
-                break;}
             case 4: {
                         cout << "Exiting...\n";
                         return 0;
                     }
             default:
-                cout << "Invalid input. Please enter a number between '1' to '5'.\n";
+                cout << "Invalid input. Please enter a number between '1' to '4'.\n";
         }
     }
 }
