@@ -10,14 +10,24 @@ using namespace std;
 namespace fs = filesystem;
 
 int n;
-bool stringValid(const string &textInput) {
+const int MAX_STUDENTS = 100;
+string students[MAX_STUDENTS][4]; // آرایه برای ذخیره موقت دانشجو ها
+int Registered_student_Count = 0; // تعداد دانش‌آموزان ثبت‌ شده
+fstream Computer_list;
+fstream Industrial_list;
+fstream Electrical_list;
+fstream Mechanical_list;
+
+bool stringValid(const string &textInput)
+{
     for (char text : textInput) {
         if (!isalpha(text) && text != ' ')
             return false;
     }
     return true;
 } // برسی می کند که ورودی آیا رشته است یا خیر
-bool majorValid(const string &textInput) {
+bool majorValid(const string &textInput)
+{
     string majors[4] = {"Computer", "Industrial", "Electrical", "Mechanical"};
     for (int i = 0; i < 4; i++) {
         if (textInput == majors[i]) {
