@@ -459,7 +459,6 @@ int main()
                             }
                     break;
                     }
-
             case 3: {
                     int filter_input;
                     bool valid = false;
@@ -529,6 +528,7 @@ int main()
                                         if (c == 'c')
                                             break;
                                     }
+                                    break;
                                 }
                                 case 2:
                                 {
@@ -583,6 +583,7 @@ int main()
                                         if (c == 'c')
                                             break;
                                     }
+                                    break;
                                 }
                                 case 3:
                                 {
@@ -637,6 +638,7 @@ int main()
                                         if (c == 'c')
                                             break;
                                     }
+                                    break;
                                 }
                                 case 4:
                                 {
@@ -691,6 +693,7 @@ int main()
                                         if (c == 'c')
                                             break;
                                     }
+                                    break;
                                 }
                                 default:
                                     cout << "Invalid input. Please enter a number between 1 and 4.\n";
